@@ -67,7 +67,7 @@ task sourcesJar(type: Jar) {
 //}
 
 task packageSources(type: Jar, dependsOn: 'classes') {
-    from sourceSets.main.allSource
+    from android.sourceSets.main.allSource
     classifier = 'sources'
 }
 
