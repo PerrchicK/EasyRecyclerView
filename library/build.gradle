@@ -66,6 +66,11 @@ task sourcesJar(type: Jar) {
 //    from javadoc.destinationDir
 //}
 
+task packageSources(type: Jar, dependsOn: 'classes') {
+    from sourceSets.main.allSource
+    classifier = 'sources'
+}
+
 task classesJar(type: Jar) {
     from "$buildDir/intermediates/classes/release"
 }
@@ -74,4 +79,5 @@ artifacts {
     archives classesJar
 //    archives javadocJar
     archives sourcesJar
+    archives packageSources
 }
